@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mustafa v.</title><link href="http://mustafavelioglu.com/" rel="alternate"></link><link href="http://mustafavelioglu.com/feeds/all-tr.atom.xml" rel="self"></link><id>http://mustafavelioglu.com/</id><updated>2012-11-08T01:37:11+02:00</updated><entry><title>global .gitignore kullanımı</title><link href="http://mustafavelioglu.com/posts/2012/11/08/global-gitignore-kullanimi/" rel="alternate"></link><updated>2012-11-08T01:37:11+02:00</updated><author><name>Mustafa VELİOĞLU</name></author><id>tag:mustafavelioglu.com,2012-11-08:posts/2012/11/08/global-gitignore-kullanimi/</id><summary type="html">&lt;h1&gt;.gitignore&lt;/h1&gt;
+&lt;p&gt;Bildiğiniz üzere SVN kullanırken takip edilmesini istemediğimiz dosyaları ignore ediyorduk. Git kullanırken aynı işlevi gören .gitignore dosyası var. Reponun olduğu dizinde .gitignore adında bir dosya oluşturup ignore etmek istenilen dosya ya da dizinleri bu dosyada  tanımlayarak bu problemi çözebiliriz.&lt;/p&gt;
+&lt;h3&gt;Örnek git dosyası içeriği&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Belirli bir dosya&lt;/span&gt;
+&lt;span class="n"&gt;currencyLog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt;
+&lt;span class="c"&gt;# Belirli bir dizin  &lt;/span&gt;
+&lt;span class="n"&gt;logs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;errors&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="c"&gt;# Belirli bir uzantı  &lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt;
+&lt;span class="c"&gt;# records/logs altında bulunan xml dosyaları hariç   &lt;/span&gt;
+&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;records&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;logs&lt;/span&gt;&lt;span class="o"&gt;/*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt;   
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;global .gitignore&lt;/h2&gt;
+&lt;p&gt;Tüm git dizinlerinizde geçerli olması istenen kurallar için global bir .gitignore dosyası tanımlanabilir. Mesela, PhpStorm ve NetBeans IDE'larının oluşturduğu proje dosyaları neredeyse tüm projelerimizde var. Hepsi için ayrı .gitignore oluşturmak yerine aşağıdaki gibi bir dosya tanımlayıp tüm git repo'larımızda geçerli olmasını sağlayabiliriz.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# PhpStorm Rocks!  &lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;idea&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;  
+&lt;span class="c"&gt;# NetBeans Sucks!  &lt;/span&gt;
+&lt;span class="n"&gt;nbproject&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;  
+&lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;  
+&lt;span class="n"&gt;nbbuild&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;  
+&lt;span class="n"&gt;dist&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;  
+&lt;span class="n"&gt;nbdist&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;  
+&lt;span class="n"&gt;nbactions&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt;  
+&lt;span class="n"&gt;nb&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;configuration&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt;  
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Kullanıcı dizini altında .gitignore adında bir dosya oluşturup içeriğin dosyaya yazılması  -- dileyen dosyasını başka yere de konuşlandırabilir --&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;vim ~/.gitignore
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Tüm git dizinlerinde geçerli olacak .gitignore dosyasının tanımlanması&lt;br /&gt;
+&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;git config --global core.excludesfile ~/.gitignore
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ignore etmek istenilen dosya ve klasörleri nakavt ederek yolumuza devam edebiliriz.&lt;br /&gt;
+&lt;/p&gt;
+&lt;p&gt;İyi çalışmalar,&lt;br /&gt;
+Sevgiler&lt;/p&gt;</summary><category term="git"></category><category term="gitignore"></category><category term="global gitignore"></category><category term="git config"></category></entry></feed>

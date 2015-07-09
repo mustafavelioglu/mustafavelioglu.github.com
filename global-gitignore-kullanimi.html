@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>global .gitignore kullanımı</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        
+        <link href="http://mustafavelioglu.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="mustafa v. Atom Feed" />
+        
+        
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+
+        <header id="banner" class="body">
+                <h1><a href=".">mustafa v. </a></h1>
+                <nav><ul>
+                
+                
+                
+                
+                
+                    <li class="active"><a href="./category/blog.html">blog</a></li>
+                
+                </ul></nav>
+        </header><!-- /#banner -->
+        
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="posts/2012/11/08/global-gitignore-kullanimi/" rel="bookmark"
+           title="Permalink to global .gitignore kullanımı">global .gitignore kullanımı</a></h1>
+      
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="mustafavelioglu">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
+        <abbr class="published" title="2012-11-08T01:37:11">
+                Per 08 Kasım 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/mustafa-velioglu.html">Mustafa VELİOĞLU</a>
+        </address>
+        
+<p>In <a href="./category/blog.html">blog</a>. </p>
+<p>tags: <a href="./tag/git.html">git</a><a href="./tag/gitignore.html">gitignore</a><a href="./tag/global-gitignore.html">global gitignore</a><a href="./tag/git-config.html">git config</a></p>
+
+
+</footer><!-- /.post-info -->
+      <h1>.gitignore</h1>
+<p>Bildiğiniz üzere SVN kullanırken takip edilmesini istemediğimiz dosyaları ignore ediyorduk. Git kullanırken aynı işlevi gören .gitignore dosyası var. Reponun olduğu dizinde .gitignore adında bir dosya oluşturup ignore etmek istenilen dosya ya da dizinleri bu dosyada  tanımlayarak bu problemi çözebiliriz.</p>
+<h3>Örnek git dosyası içeriği</h3>
+<div class="codehilite"><pre><span class="c"># Belirli bir dosya</span>
+<span class="n">currencyLog</span><span class="p">.</span><span class="n">xml</span>
+<span class="c"># Belirli bir dizin  </span>
+<span class="n">logs</span><span class="o">/</span><span class="n">errors</span><span class="o">/</span>
+<span class="c"># Belirli bir uzantı  </span>
+<span class="o">*</span><span class="p">.</span><span class="n">xml</span>
+<span class="c"># records/logs altında bulunan xml dosyaları hariç   </span>
+<span class="o">!</span><span class="n">records</span><span class="o">/</span><span class="n">logs</span><span class="o">/*</span><span class="p">.</span><span class="n">xml</span>   
+</pre></div>
+
+
+<h2>global .gitignore</h2>
+<p>Tüm git dizinlerinizde geçerli olması istenen kurallar için global bir .gitignore dosyası tanımlanabilir. Mesela, PhpStorm ve NetBeans IDE'larının oluşturduğu proje dosyaları neredeyse tüm projelerimizde var. Hepsi için ayrı .gitignore oluşturmak yerine aşağıdaki gibi bir dosya tanımlayıp tüm git repo'larımızda geçerli olmasını sağlayabiliriz.</p>
+<div class="codehilite"><pre><span class="c"># PhpStorm Rocks!  </span>
+<span class="p">.</span><span class="n">idea</span><span class="o">/</span>  
+<span class="c"># NetBeans Sucks!  </span>
+<span class="n">nbproject</span><span class="o">/</span><span class="n">private</span><span class="o">/</span>  
+<span class="n">build</span><span class="o">/</span>  
+<span class="n">nbbuild</span><span class="o">/</span>  
+<span class="n">dist</span><span class="o">/</span>  
+<span class="n">nbdist</span><span class="o">/</span>  
+<span class="n">nbactions</span><span class="p">.</span><span class="n">xml</span>  
+<span class="n">nb</span><span class="o">-</span><span class="n">configuration</span><span class="p">.</span><span class="n">xml</span>  
+</pre></div>
+
+
+<p>Kullanıcı dizini altında .gitignore adında bir dosya oluşturup içeriğin dosyaya yazılması  -- dileyen dosyasını başka yere de konuşlandırabilir --</p>
+<div class="codehilite"><pre>vim ~/.gitignore
+</pre></div>
+
+
+<p>Tüm git dizinlerinde geçerli olacak .gitignore dosyasının tanımlanması<br />
+</p>
+<div class="codehilite"><pre>git config --global core.excludesfile ~/.gitignore
+</pre></div>
+
+
+<p>Ignore etmek istenilen dosya ve klasörleri nakavt ederek yolumuza devam edebiliriz.<br />
+</p>
+<p>İyi çalışmalar,<br />
+Sevgiler</p>
+    </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "posts/2012/11/08/global-gitignore-kullanimi/";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://mustafavelioglu.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
+
+  </article>
+</section>
+
+        <section id="extras" class="body">
+        
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                        
+                            <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
+                        
+                        </ul>
+                </div><!-- /.blogroll -->
+        
+        
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://mustafavelioglu.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            
+
+                        
+                            <li><a href="http://twitter.com/mustafavelioglu">@mustafavelioglu</a></li>
+                        
+                        </ul>
+                </div><!-- /.social -->
+        
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-36245792-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'mustafavelioglu';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>
